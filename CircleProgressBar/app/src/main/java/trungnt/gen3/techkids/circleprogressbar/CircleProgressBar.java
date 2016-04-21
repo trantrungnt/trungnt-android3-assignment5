@@ -32,15 +32,21 @@ public class CircleProgressBar extends View {
 //        //rectF la vung Cha bao quanh hinh tron, goc quay tu 0 den 45 do la goc quay, ve o giua tam cua hinh chu nhat, paint  la but ve
 //        canvas.drawArc(rectF, 0, 45, false, paint);
 
-        Paint pCircleRed = new Paint();
-        // smooths
-        pCircleRed.setAntiAlias(true);
-        pCircleRed.setColor(Color.parseColor("#1A237E"));
-        pCircleRed.setStyle(Paint.Style.STROKE);
-        pCircleRed.setStrokeWidth(20.0f);
-        //canvas.drawCircle(300, 280, 200, pCircleRed);
-        canvas.drawCircle(300, 280, 200, pCircleRed);
+//        Paint pCircleRed = new Paint();
+//        // smooths
+//        pCircleRed.setAntiAlias(true);
+//        pCircleRed.setColor(Color.parseColor("#1A237E"));
+//        pCircleRed.setStyle(Paint.Style.STROKE);
+//        pCircleRed.setStrokeWidth(20.0f);
+//        //canvas.drawCircle(300, 280, 200, pCircleRed);
+//        canvas.drawCircle(300, 280, 200, pCircleRed);
 
+        Paint pCircleBorder = new Paint();
+        pCircleBorder.setColor(Color.parseColor("#1A237E"));
+        pCircleBorder.setStyle(Paint.Style.STROKE);
+        pCircleBorder.setStrokeWidth(20.0f);;
+        RectF rectFCircleBorder = new RectF(100, 80, 500, 480);
+        canvas.drawArc(rectFCircleBorder, 0, 360, false, pCircleBorder);
 
         Paint pCricleBlue = new Paint();
         pCricleBlue.setAntiAlias(true);
