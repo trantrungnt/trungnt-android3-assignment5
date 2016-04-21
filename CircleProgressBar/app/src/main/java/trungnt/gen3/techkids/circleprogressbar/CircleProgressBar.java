@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -26,8 +27,8 @@ public class CircleProgressBar extends View {
         paint.setStyle(Paint.Style.FILL);
 
         //ve o vi tri nao: x, y, width, height cua rectF => left, top, right, bottom
-        RectF rectF = new RectF(0, 0, 200, 200); //don vi ve trong java la pizel, con don vi tren xml la dp
+        RectF rectF = new RectF(100, 100, 500, 500); //don vi ve trong java la pizel, con don vi tren xml la dp
         //rectF la vung Cha bao quanh hinh tron, goc quay tu 0 den 45 do la goc quay, ve o giua tam cua hinh chu nhat, paint  la but ve
-        canvas.drawArc(rectF, 0, 45, true, paint);
+        canvas.drawArc(rectF, 0, 360, false, paint);
     }
 }

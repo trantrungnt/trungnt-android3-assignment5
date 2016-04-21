@@ -8,4 +8,5 @@
     <dimen name="circleProgressBar_height">300dp</dimen>
     <dimen name="editTextTaskName_width">300dp</dimen>
     <dimen name="editTextTaskName_height">50dp</dimen>
+    <dimen name="editTextTaskName_marginTop">30dp</dimen>
 </resources>

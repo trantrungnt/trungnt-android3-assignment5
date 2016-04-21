@@ -9,10 +9,14 @@
         android:id="@+id/editTextTaskName"
         android:hint="@string/editTextTaskName_hint"
         android:gravity="center"
+        android:layout_marginTop="@dimen/editTextTaskName_marginTop"
+        android:layout_centerHorizontal="true"
         android:layout_width="@dimen/editTextTaskName_width"
         android:layout_height="@dimen/editTextTaskName_height" />
+
     <trungnt.gen3.techkids.circleprogressbar.CircleProgressBar
         android:id="@+id/circleProgressBar"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/editTextTaskName"
         android:layout_width="@dimen/circleProgressBar_width"
         android:layout_height="@dimen/circleProgressBar_height" />
@@ -21,6 +25,7 @@
         android:id="@+id/imgBtnProcess"
         android:src="@drawable/play"
         android:layout_below="@id/circleProgressBar"
+        android:layout_centerHorizontal="true"
         android:layout_width="@dimen/imgBtnProcess_width"
         android:layout_height="@dimen/imgBtnProcess_height" />
 </RelativeLayout>
