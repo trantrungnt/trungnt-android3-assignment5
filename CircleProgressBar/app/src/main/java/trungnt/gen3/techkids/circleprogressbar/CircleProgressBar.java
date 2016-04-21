@@ -24,11 +24,12 @@ public class CircleProgressBar extends View {
         super.draw(canvas);
         Paint paint = new Paint();
         paint.setColor(Color.GREEN);
-        paint.setStyle(Paint.Style.FILL);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(10);
 
         //ve o vi tri nao: x, y, width, height cua rectF => left, top, right, bottom
         RectF rectF = new RectF(100, 100, 500, 500); //don vi ve trong java la pizel, con don vi tren xml la dp
         //rectF la vung Cha bao quanh hinh tron, goc quay tu 0 den 45 do la goc quay, ve o giua tam cua hinh chu nhat, paint  la but ve
-        canvas.drawArc(rectF, 0, 360, false, paint);
+        canvas.drawArc(rectF, 0, 45, false, paint);
     }
 }
