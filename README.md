@@ -34,3 +34,7 @@ public class CircleProgressBar extends View {
 + Bộ công cụ Android Studio version 2.0
 + Máy ảo Genymotion với hệ điều hành Android version 4.3
 + Máy thật Samsung Galazy S3 với hệ điều hành Android version 4.3
+
+
+##Nguồn tham khảo
++ [Material Design Icons của Google](https://google.github.io/material-design-icons/)
