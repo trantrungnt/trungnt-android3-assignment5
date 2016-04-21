@@ -32,12 +32,20 @@ public class CircleProgressBar extends View {
 //        //rectF la vung Cha bao quanh hinh tron, goc quay tu 0 den 45 do la goc quay, ve o giua tam cua hinh chu nhat, paint  la but ve
 //        canvas.drawArc(rectF, 0, 45, false, paint);
 
-        Paint p = new Paint();
+        Paint pCircleRed = new Paint();
         // smooths
-        p.setAntiAlias(true);
-        p.setColor(Color.RED);
-        p.setStyle(Paint.Style.STROKE);
-        p.setStrokeWidth(4.5f);
-        canvas.drawCircle(300, 280, 200, p);
+        pCircleRed.setAntiAlias(true);
+        pCircleRed.setColor(Color.RED);
+        pCircleRed.setStyle(Paint.Style.STROKE);
+        pCircleRed.setStrokeWidth(4.5f);
+        canvas.drawCircle(300, 280, 200, pCircleRed);
+
+
+        Paint pCricleBlue = new Paint();
+        pCricleBlue.setAntiAlias(true);
+        pCricleBlue.setColor(Color.BLUE);
+        pCricleBlue.setStyle(Paint.Style.FILL);
+        pCricleBlue.setStrokeWidth(2.5f);
+        canvas.drawCircle(300, 280, 150, pCricleBlue);
     }
 }
