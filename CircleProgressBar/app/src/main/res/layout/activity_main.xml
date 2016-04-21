@@ -6,6 +6,14 @@
     tools:context="trungnt.gen3.techkids.circleprogressbar.MainActivity">
 
     <trungnt.gen3.techkids.circleprogressbar.CircleProgressBar
-        android:layout_width="300dp"
-        android:layout_height="300dp" />
+        android:id="@+id/circleProgressBar"
+        android:layout_width="@dimen/circleProgressBar_width"
+        android:layout_height="@dimen/circleProgressBar_height" />
+
+    <ImageButton
+        android:id="@+id/imgBtnProcess"
+        android:src="@drawable/play"
+        android:layout_below="@id/circleProgressBar"
+        android:layout_width="@dimen/imgBtnProcess_width"
+        android:layout_height="@dimen/imgBtnProcess_height" />
 </RelativeLayout>
