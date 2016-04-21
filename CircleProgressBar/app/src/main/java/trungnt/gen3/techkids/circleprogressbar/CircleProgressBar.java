@@ -35,9 +35,9 @@ public class CircleProgressBar extends View {
         Paint pCircleRed = new Paint();
         // smooths
         pCircleRed.setAntiAlias(true);
-        pCircleRed.setColor(Color.RED);
+        pCircleRed.setColor(Color.parseColor("#1A237E"));
         pCircleRed.setStyle(Paint.Style.STROKE);
-        pCircleRed.setStrokeWidth(4.5f);
+        pCircleRed.setStrokeWidth(10.0f);
         canvas.drawCircle(300, 280, 200, pCircleRed);
 
 
@@ -47,5 +47,7 @@ public class CircleProgressBar extends View {
         pCricleBlue.setStyle(Paint.Style.FILL);
         pCricleBlue.setStrokeWidth(2.5f);
         canvas.drawCircle(300, 280, 180, pCricleBlue);
+
+
     }
 }
