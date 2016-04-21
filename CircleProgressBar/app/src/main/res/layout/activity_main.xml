@@ -5,8 +5,15 @@
     android:layout_height="match_parent"
     tools:context="trungnt.gen3.techkids.circleprogressbar.MainActivity">
 
+    <EditText
+        android:id="@+id/editTextTaskName"
+        android:hint="@string/editTextTaskName_hint"
+        android:gravity="center"
+        android:layout_width="@dimen/editTextTaskName_width"
+        android:layout_height="@dimen/editTextTaskName_height" />
     <trungnt.gen3.techkids.circleprogressbar.CircleProgressBar
         android:id="@+id/circleProgressBar"
+        android:layout_below="@id/editTextTaskName"
         android:layout_width="@dimen/circleProgressBar_width"
         android:layout_height="@dimen/circleProgressBar_height" />
 
