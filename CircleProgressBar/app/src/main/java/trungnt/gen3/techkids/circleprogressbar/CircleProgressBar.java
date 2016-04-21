@@ -48,6 +48,11 @@ public class CircleProgressBar extends View {
         pCricleBlue.setStrokeWidth(2.5f);
         canvas.drawCircle(300, 280, 180, pCricleBlue);
 
-
+        Paint pText = new Paint();
+        pText.setColor(Color.parseColor("#FFEBEE"));
+        pText.setStyle(Paint.Style.FILL);
+        pText.setTextSize(100);
+        pText.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText("25:00", 300, 300, pText);
     }
 }
