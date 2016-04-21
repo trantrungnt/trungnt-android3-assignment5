@@ -46,7 +46,7 @@ public class CircleProgressBar extends View {
         pCircleBorder.setStyle(Paint.Style.STROKE);
         pCircleBorder.setStrokeWidth(20.0f);;
         RectF rectFCircleBorder = new RectF(100, 80, 500, 480);
-        canvas.drawArc(rectFCircleBorder, 0, 360, false, pCircleBorder);
+        canvas.drawArc(rectFCircleBorder, -90, 20, false, pCircleBorder);
 
         Paint pCricleBlue = new Paint();
         pCricleBlue.setAntiAlias(true);
