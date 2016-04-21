@@ -25,7 +25,7 @@ public class CircleProgressBar extends View {
         paint.setColor(Color.GREEN);
         paint.setStyle(Paint.Style.FILL);
 
-        //ve o vi tri nao
+        //ve o vi tri nao: x, y, width, height cua rectF
         RectF rectF = new RectF(0, 100, 50, 200); //don vi ve trong java la pizel, con don vi tren xml la dp
         canvas.drawRect(rectF, paint);
     }
