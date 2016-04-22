@@ -15,8 +15,30 @@ import android.view.View;
 public class CircleProgressBar extends View {
     public CircleProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
-
     }
+
+    private float delta;
+
+    public int getMax() {
+        return max;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
+        delta = 1.0f * 360 / max;
+    }
+
+    public int getProgress() {
+        return progress;
+    }
+
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
+
+    private int max;
+    private int progress;
+
 
     @Override
     public void draw(Canvas canvas)
@@ -46,7 +68,7 @@ public class CircleProgressBar extends View {
         pCircleBorder.setStyle(Paint.Style.STROKE);
         pCircleBorder.setStrokeWidth(20.0f);;
         RectF rectFCircleBorder = new RectF(100, 80, 500, 480);
-        canvas.drawArc(rectFCircleBorder, -90, 20, false, pCircleBorder);
+        canvas.drawArc(rectFCircleBorder, -90, delta*progress, false, pCircleBorder);
 
         Paint pCricleBlue = new Paint();
         pCricleBlue.setAntiAlias(true);
