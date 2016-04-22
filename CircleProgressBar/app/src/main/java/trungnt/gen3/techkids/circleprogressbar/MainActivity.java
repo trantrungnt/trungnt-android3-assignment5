@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int countTime;
     private CircleProgressBar circleProgressBar;
     private ImageButton imgBtnProcess;
+    private int minute, second;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +32,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onStart()
     {
         super.onStart();
+        countTime = 1500;
     }
 
     private void initView()
     {
         circleProgressBar = (CircleProgressBar) this.findViewById(R.id.circleProgressBar);
-        circleProgressBar.setMax(20);
+        circleProgressBar.setMax(1500);
         circleProgressBar.setProgress(0);
         imgBtnProcess = (ImageButton) this.findViewById(R.id.imgBtnProcess);
         imgBtnProcess.setOnClickListener(this);
         imgBtnProcess.setImageResource(R.drawable.play);
+
+        //khoi tao thoi gian
+        circleProgressBar.setMinute("25");
+        circleProgressBar.setSecond("00");
     }
 
     @Override
@@ -54,14 +60,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             timer.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
-                    countTime++;
+                    countTime--;
+                    minute = countTime / 60;
+                    second = countTime % 60;
 
-                    MainActivity.this.circleProgressBar.setProgress(countTime);
-                    MainActivity.this.circleProgressBar.postInvalidate(); //giong repaint
+                    if (countTime>=0) {
+                        MainActivity.this.circleProgressBar.setProgress(countTime);
+                        MainActivity.this.circleProgressBar.postInvalidate(); //giong repaint
+                        MainActivity.this.circleProgressBar.setMinute(String.valueOf(minute));
+                        MainActivity.this.circleProgressBar.setSecond(String.valueOf(second));
+                    }
 
-                    if (countTime == 20)
+                    if (countTime == 0)
                     {
                         notificationAlert();
+                        MainActivity.this.circleProgressBar.setMinute(String.valueOf(0));
+                        MainActivity.this.circleProgressBar.setSecond(String.valueOf(0));
+
                     }
                 }
             }, 1000, 1000);
@@ -75,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.phone)
                         .setContentTitle("WARNING ...")
-                        .setContentText("You need to finish your task");
+                        .setContentText("You need to relax !!!!! ");
 
         Intent resultIntent = new Intent(this, ResultActivity.class);
 

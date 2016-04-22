@@ -14,6 +14,25 @@ import android.view.View;
  */
 public class CircleProgressBar extends View {
     private Paint pCircleBorder, pCricleBlue, pText;
+    private String minute;
+
+    public String getSecond() {
+        return second;
+    }
+
+    public void setSecond(String second) {
+        this.second = second;
+    }
+
+    public String getMinute() {
+        return minute;
+    }
+
+    public void setMinute(String minute) {
+        this.minute = minute;
+    }
+
+    private String second;
 
     public CircleProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -82,8 +101,8 @@ public class CircleProgressBar extends View {
         pText = new Paint();
         pText.setColor(Color.parseColor("#FFEBEE"));
         pText.setStyle(Paint.Style.FILL);
-        pText.setTextSize(100);
+        pText.setTextSize(50);
         pText.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText("25:00", 300, 300, pText);
+        canvas.drawText(minute + ":" + second, 300, 300, pText);
     }
 }
