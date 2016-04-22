@@ -23,7 +23,6 @@
 
     <ImageButton
         android:id="@+id/imgBtnProcess"
-        android:src="@drawable/play"
         android:layout_below="@id/circleProgressBar"
         android:layout_centerHorizontal="true"
         android:layout_width="@dimen/imgBtnProcess_width"

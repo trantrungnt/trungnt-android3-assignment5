@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         circleProgressBar.setProgress(0);
         imgBtnProcess = (ImageButton) this.findViewById(R.id.imgBtnProcess);
         imgBtnProcess.setOnClickListener(this);
+        imgBtnProcess.setImageResource(R.drawable.play);
     }
 
     @Override
@@ -35,13 +36,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = v.getId();
 
         if (id == R.id.imgBtnProcess) {
+            imgBtnProcess.setImageResource(R.drawable.stop);
             Timer timer = new Timer();
             timer.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
                     countTime++;
-                    MainActivity.this.circleProgressBar.setProgress(countTime);
-                    MainActivity.this.circleProgressBar.postInvalidate(); //giong repaint
+                    if (countTime<=360) {
+                        MainActivity.this.circleProgressBar.setProgress(countTime);
+                        MainActivity.this.circleProgressBar.postInvalidate(); //giong repaint
+                    }
+
+
                 }
             }, 1000, 1000);
 
