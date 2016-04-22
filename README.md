@@ -30,6 +30,31 @@ public class CircleProgressBar extends View {
 
 ```
 
++ Vẽ đường tròn và viền hình tròn kết hợp có Text bên trong hình tròn
+```
+  Paint pCircleBorder = new Paint();
+        pCircleBorder.setColor(Color.parseColor("#1A237E"));
+        pCircleBorder.setStyle(Paint.Style.STROKE);
+        pCircleBorder.setStrokeWidth(20.0f);;
+        RectF rectFCircleBorder = new RectF(100, 80, 500, 480);
+        canvas.drawArc(rectFCircleBorder, -90, 20, false, pCircleBorder);
+
+        Paint pCricleBlue = new Paint();
+        pCricleBlue.setAntiAlias(true);
+        pCricleBlue.setColor(Color.BLUE);
+        pCricleBlue.setStyle(Paint.Style.FILL);
+        pCricleBlue.setStrokeWidth(2.5f);
+        canvas.drawCircle(300, 280, 180, pCricleBlue);
+
+        Paint pText = new Paint();
+        pText.setColor(Color.parseColor("#FFEBEE"));
+        pText.setStyle(Paint.Style.FILL);
+        pText.setTextSize(100);
+        pText.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText("25:00", 300, 300, pText);
+```
+
+
 ##Môi trường phát triển
 + Bộ công cụ Android Studio version 2.0
 + Máy ảo Genymotion với hệ điều hành Android version 4.3
