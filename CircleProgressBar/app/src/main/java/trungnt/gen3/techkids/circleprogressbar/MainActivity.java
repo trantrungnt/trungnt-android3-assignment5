@@ -1,5 +1,11 @@
 package trungnt.gen3.techkids.circleprogressbar;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +27,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
     }
 
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+    }
+
     private void initView()
     {
         circleProgressBar = (CircleProgressBar) this.findViewById(R.id.circleProgressBar);
@@ -36,21 +48,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = v.getId();
 
         if (id == R.id.imgBtnProcess) {
+            //doi anh cua nut imgBtnProcess
             imgBtnProcess.setImageResource(R.drawable.stop);
             Timer timer = new Timer();
             timer.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
                     countTime++;
-                    if (countTime<=360) {
-                        MainActivity.this.circleProgressBar.setProgress(countTime);
-                        MainActivity.this.circleProgressBar.postInvalidate(); //giong repaint
+
+                    MainActivity.this.circleProgressBar.setProgress(countTime);
+                    MainActivity.this.circleProgressBar.postInvalidate(); //giong repaint
+
+                    if (countTime == 20)
+                    {
+                        notificationAlert();
                     }
-
-
                 }
             }, 1000, 1000);
-
         }
+    }
+
+
+    private void notificationAlert()
+    {
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.phone)
+                        .setContentTitle("WARNING ...")
+                        .setContentText("You need to finish your task");
+
+        Intent resultIntent = new Intent(this, ResultActivity.class);
+
+
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+
+        stackBuilder.addParentStack(ResultActivity.class);
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent =
+                stackBuilder.getPendingIntent(
+                        0,
+                        PendingIntent.FLAG_UPDATE_CURRENT
+                );
+        mBuilder.setContentIntent(resultPendingIntent);
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(99, mBuilder.build());
     }
 }
