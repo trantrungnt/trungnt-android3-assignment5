@@ -13,6 +13,8 @@ import android.view.View;
  * Created by TrungNT on 4/21/2016.
  */
 public class CircleProgressBar extends View {
+    private Paint pCircleBorder, pCricleBlue, pText;
+
     public CircleProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
@@ -63,21 +65,21 @@ public class CircleProgressBar extends View {
 //        //canvas.drawCircle(300, 280, 200, pCircleRed);
 //        canvas.drawCircle(300, 280, 200, pCircleRed);
 
-        Paint pCircleBorder = new Paint();
+        pCircleBorder = new Paint();
         pCircleBorder.setColor(Color.parseColor("#1A237E"));
         pCircleBorder.setStyle(Paint.Style.STROKE);
         pCircleBorder.setStrokeWidth(20.0f);;
         RectF rectFCircleBorder = new RectF(100, 80, 500, 480);
         canvas.drawArc(rectFCircleBorder, -90, delta*progress, false, pCircleBorder);
 
-        Paint pCricleBlue = new Paint();
+        pCricleBlue = new Paint();
         pCricleBlue.setAntiAlias(true);
         pCricleBlue.setColor(Color.BLUE);
         pCricleBlue.setStyle(Paint.Style.FILL);
         pCricleBlue.setStrokeWidth(2.5f);
         canvas.drawCircle(300, 280, 180, pCricleBlue);
 
-        Paint pText = new Paint();
+        pText = new Paint();
         pText.setColor(Color.parseColor("#FFEBEE"));
         pText.setStyle(Paint.Style.FILL);
         pText.setTextSize(100);
