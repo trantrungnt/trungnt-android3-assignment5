@@ -13,7 +13,7 @@ import android.view.View;
  * Created by TrungNT on 4/21/2016.
  */
 public class CircleProgressBar extends View {
-    private Paint pCircleBorder, pCricleBlue, pText;
+    private Paint pCircleBorder, pCricle, pText, pCircleSmall;
     private String minute;
 
     public String getSecond() {
@@ -85,18 +85,21 @@ public class CircleProgressBar extends View {
 //        canvas.drawCircle(300, 280, 200, pCircleRed);
 
         pCircleBorder = new Paint();
-        pCircleBorder.setColor(Color.parseColor("#1A237E"));
+        //pCircleBorder.setColor(Color.parseColor("#1A237E"));
+        pCircleBorder.setColor(Color.WHITE);
+        //pCircleBorder.setColor(Color.GREEN);
         pCircleBorder.setStyle(Paint.Style.STROKE);
-        pCircleBorder.setStrokeWidth(20.0f);;
+        pCircleBorder.setStrokeWidth(8.0f);;
         RectF rectFCircleBorder = new RectF(100, 80, 500, 480);
+        //canvas.drawArc(rectFCircleBorder, -90, 45, false, pCircleBorder);
         canvas.drawArc(rectFCircleBorder, -90, delta*progress, false, pCircleBorder);
 
-        pCricleBlue = new Paint();
-        pCricleBlue.setAntiAlias(true);
-        pCricleBlue.setColor(Color.BLUE);
-        pCricleBlue.setStyle(Paint.Style.FILL);
-        pCricleBlue.setStrokeWidth(2.5f);
-        canvas.drawCircle(300, 280, 180, pCricleBlue);
+        pCricle = new Paint();
+        pCricle.setAntiAlias(true);
+        pCricle.setColor(Color.BLUE);
+        pCricle.setStyle(Paint.Style.FILL);
+        pCricle.setStrokeWidth(2.0f);
+        canvas.drawCircle(300, 280, 200, pCricle);
 
         pText = new Paint();
         pText.setColor(Color.parseColor("#FFEBEE"));
@@ -104,5 +107,10 @@ public class CircleProgressBar extends View {
         pText.setTextSize(50);
         pText.setTextAlign(Paint.Align.CENTER);
         canvas.drawText(minute + ":" + second, 300, 300, pText);
+
+        pCircleSmall = new Paint();
+        pCircleSmall.setColor(Color.WHITE);
+        pCircleSmall.setStyle(Paint.Style.FILL);
+        canvas.drawCircle(50, 50, 10, pCircleSmall);
     }
 }

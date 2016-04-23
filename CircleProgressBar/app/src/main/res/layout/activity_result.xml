@@ -9,4 +9,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="trungnt.gen3.techkids.circleprogressbar.ResultActivity">
 
+    <ImageView
+        android:src="@drawable/trungnt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </RelativeLayout>
